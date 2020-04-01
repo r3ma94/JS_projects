@@ -40,14 +40,14 @@ window.addEventListener("load", () =>{
 
                     // Change temperature to Fahrenheit on click
                     degreeSection.addEventListener("click", () => {
-                        if(degreeSpan.textContent === "°C"){
-                            degreeSpan.textContent = "°F";
-                            temperatureDegree.textContent = temperatureFahrenheit;
+                        if(degreeSpan.innerHTML === "°C"){
+                            degreeSpan.innerHTML = "°F";
+                            temperatureDegree.innerHTML = Math.floor(temperatureFahrenheit);
                             
                         }
                         else {
-                            degreeSpan.textContent = "°C";
-                            temperatureDegree.textContent = temperature;
+                            degreeSpan.innerHTML = "°C";
+                            temperatureDegree.innerHTML = temperature;
                         }
                     });
                 });
