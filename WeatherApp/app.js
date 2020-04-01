@@ -74,7 +74,7 @@ window.addEventListener("load", () =>{
         if(icon == "02n"){
             currentIcon = "PARTLY_CLOUDY_NIGHT";
         }
-        if(icon == "03d" || icon == "03n"){
+        if(icon == "03d" || icon == "03n" || icon == "04d" || icon == "o4n"){
             currentIcon = "CLOUDY";
         }
         if(icon == "09d" || icon =="10d" || icon == "11d"){
