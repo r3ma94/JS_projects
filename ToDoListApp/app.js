@@ -32,6 +32,7 @@ function addTodo(event){
     trashButton.innerHTML = "<i class='fas fa-trash'></i>";
     trashButton.classList.add("trash-button");
     todoDiv.appendChild(trashButton);
+
     // Appending to list
     todoList.appendChild(todoDiv);
 
@@ -50,18 +51,18 @@ function deleteCheck(event){
         todo.addEventListener("transitionend", function(){
             todo.remove();
         });
-    }
-    
+    }    
     // Check
     if(item.classList[0] === "complete-button"){
         let todo = item.parentElement;
         todo.classList.toggle("completed");
     }
+
 };
 
 function filterTodo(event){
     let todos = todoList.childNodes;
-    console.log(todos);
+    //console.log(todos);
     todos.forEach(function(todo) {
         switch(event.target.value){
             case "all":

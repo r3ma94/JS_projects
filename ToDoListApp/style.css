@@ -31,14 +31,14 @@ form input, form button{
 }
 
 form button {
-    color: #fda085;
+    color: #85144b;
     background: white;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 form button:hover{
-    background: #fda085;;
+    background: #83335a;;
     color: white;
 }
 
@@ -70,7 +70,7 @@ form button:hover{
 }
 
 /* Styling the buttons */
-.trash-button, .complete-button{
+.trash-button, .complete-button, .edit-button{
     background: #ff6f47;
     color: white;
     border: none;
@@ -79,14 +79,20 @@ form button:hover{
     font-size: 1rem;
 }
 .complete-button{
-    background: rgb(73, 204, 73);
+    background: #2ECC40;
+}
+.trash-button{
+    background: #FF4136;
+}
+.edit-button {
+    background: #0074D9;
 }
 
 .todo-item {
     padding: 0rem 0.5rem;
 }
 
-.fa-trash, .fa-check{
+.fa-trash, .fa-check, .fa-edit{
     pointer-events: none;
 }
 
@@ -119,15 +125,17 @@ select{
 select{
     color: #ff6f47;
     width: 10rem;
+    height: 3.3rem;
     cursor: pointer;
     padding: 1rem;
+    font-size: 1rem;
 }
 
 /* This piece of css code adds a little arrow to the menu*/
 .select:after{
     content: "\25BC";
     position: absolute;
-    background: #ff6f47;
+    background: #85144b;
     top: 0;
     right: 0;
     padding: 1rem;
