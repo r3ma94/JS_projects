@@ -14,7 +14,26 @@ class Drumkit{
     repeat(){
         let step = this.index % 8; // There are 8 beat pads
         let activeBars = document.querySelectorAll(`.b${step}`);
-        console.log(step);
+        // Loop over the pads and add animation style
+        activeBars.forEach(bar => {
+            bar.style.animation = `playTrack 0.3s alternate ease-in-out 2`;
+            // Check if the pads are active
+            if(bar.classList.contains("active")){
+                // Check which sound is active
+                if(bar.classList.contains("kick-pad")){
+                    this.kickAudio.currentTime = 0; // To restart the time so that the sound plays right away 
+                    this.kickAudio.play();
+                }
+                if(bar.classList.contains("snare-pad")){
+                    this.snareAudio.currentTime = 0;
+                    this.snareAudio.play();
+                }
+                if(bar.classList.contains("hihat-pad")){
+                    this.snareAudio.currentTime = 0;
+                    this.hihatAudio.play();
+                }
+            }
+        });
         this.index++;
     }
     start(){
@@ -31,7 +50,10 @@ let drumkit = new Drumkit();
 
 // Loop to activate the pads on click
 drumkit.pads.forEach(pad =>{
-    pad.addEventListener("click", drumkit.activePad)
+    pad.addEventListener("click", drumkit.activePad);
+    pad.addEventListener("animationend", function(){
+        this.style.animation = ""; // Remove the style so that the animation loop continues
+    });
 })
 
 // Play button to start the loop
