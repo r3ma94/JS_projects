@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="username-div">
+       <form id="usernameForm">
+           <label for="userName">Unesite vase korisnicko ime:</label>
+           <input type="text" name="userName" id="userName">
+           <input type="submit" value="Unesi korisnicko ime">
+       </form>
+    </div>
+
+    <div class="selection">
+        <label for="select">Odaberite kategoriju:</label>
+        <select id="select">
+            <option value="drzava">Drzava</option>
+            <option value="grad">Grad</option>
+            <option value="reka">Reka</option>
+            <option value="planina">Planina</option>
+            <option value="zivotinja">Zivotinja</option>
+            <option value="biljka">Biljka</option>
+            <option value="predmet">Predmet</option>
+        </select>
+        
+            <input type="text" id="inputPojam">
+            <input type="button" value="Unesi pojam" id="buttonPojam">
+        
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCCCH-FUgm3HRw-u2_oKo4-aJaFefHh1Xk",
+        authDomain: "zgeografija-a0bcb.firebaseapp.com",
+        databaseURL: "https://zgeografija-a0bcb.firebaseio.com",
+        projectId: "zgeografija-a0bcb",
+        storageBucket: "zgeografija-a0bcb.appspot.com",
+        messagingSenderId: "380372378737",
+        appId: "1:380372378737:web:fff9efac6f45c7cfb427d0"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    let db = firebase.firestore();
+    </script>  
+    <script src="app.js"></script>
+</body>
+</html>
