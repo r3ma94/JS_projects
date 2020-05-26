@@ -2,9 +2,7 @@
 window.addEventListener("load", () => {
   let longitude;
   let latitude;
-  let temperatureDescription = document.querySelector(
-    ".temperature-description"
-  );
+  let temperatureDescription = document.querySelector(".temperature-description");
   let temperatureDegree = document.querySelector(".temperature-degree");
   let locationTimezone = document.querySelector(".location-timezone");
   let degreeSection = document.querySelector(".degree-section");
