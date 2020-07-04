@@ -13,6 +13,7 @@ class Drumkit{
         this.isPlaying = null;
         this.selects = document.querySelectorAll("select");
         this.muteButtons = document.querySelectorAll(".mute");
+        this.tempoSlider = document.querySelector(".tempo-slider");
     }
     activePad(){
         this.classList.toggle("active");
@@ -45,14 +46,14 @@ class Drumkit{
     start(){
         let interval = (60/this.bpm) * 1000;
         // Check if it's already playing:
-        if(!this.isPlaying){
-            this.isPlaying = setInterval(() =>{
-                this.repeat();
-            }, interval);
-        } else {
+        if(this.isPlaying){
             // Clear the interval
             clearInterval(this.isPlaying);
             this.isPlaying = null;
+        } else {
+            this.isPlaying = setInterval(() =>{
+                this.repeat();
+            }, interval)
         }
     }
     // Update text inside the button 
@@ -113,6 +114,21 @@ class Drumkit{
             }
         }
     }
+    changeTempo(e){
+        //console.log(e);
+        let tempoText = document.querySelector(".tempo-nr");
+
+        tempoText.innerText = e.target.value;
+    }
+    updateTempo(e) {
+        this.bpm = e.target.value;
+        clearInterval(this.isPlaying);
+        this.isPlaying = null; // To change to stop after changing tempo        
+        if (!this.playButton.classList.contains("active")){
+            this.start();
+        }
+        
+    }
 }
 
 
@@ -140,11 +156,19 @@ drumkit.playButton.addEventListener("click", () =>{
 drumkit.selects.forEach(select => {
     select.addEventListener("change", function(e){
         drumkit.changeSound(e);
-    })
+    });
 });
 
 drumkit.muteButtons.forEach(btn =>{
     btn.addEventListener("click", function(e){
         drumkit.mute(e);
-    })
-})
+    });
+});
+
+drumkit.tempoSlider.addEventListener("input", function(e){
+    drumkit.changeTempo(e)
+});
+
+drumkit.tempoSlider.addEventListener("change", function(e){
+    drumkit.updateTempo(e)
+});
